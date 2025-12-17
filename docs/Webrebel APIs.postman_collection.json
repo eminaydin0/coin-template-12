@@ -1,0 +1,463 @@
+{
+	"info": {
+		"_postman_id": "92f04239-f428-46fc-9203-cf0af4414e06",
+		"name": "Webrebel APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47090655",
+		"_collection_link": "https://research-meteorologist-22347394-4633597.postman.co/workspace/MM's-Workspace~24837fe5-9a82-42ad-89b1-91673b22bce9/collection/47090655-92f04239-f428-46fc-9203-cf0af4414e06?action=share&source=collection_link&creator=47090655"
+	},
+	"item": [
+		{
+			"name": "Get Site META",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/meta",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"meta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Site IBANS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/ibans",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"ibans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Site Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/categories",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Homepage Items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/homepage-items?length=3",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"homepage-items"
+					],
+					"query": [
+						{
+							"key": "length",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/product-detail?slug=400-gem",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"product-detail"
+					],
+					"query": [
+						{
+							"key": "slug",
+							"value": "400-gem"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Category Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/category-products?slug=league-of-legends",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"category-products"
+					],
+					"query": [
+						{
+							"key": "slug",
+							"value": "league-of-legends"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Category Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{SERVER}}/category-detail?slug=league-of-legends",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"category-detail"
+					],
+					"query": [
+						{
+							"key": "slug",
+							"value": "league-of-legends"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Bedir\",\r\n    \"lastName\": \"Aksu\",\r\n    \"email\": \"bediraksu@gmail.com\",\r\n    \"password\": \"Bedir123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/register",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"bediraksu@gmail.com\",\r\n    \"password\": \"Bedir123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/login",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "My Basket",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/my-basket",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"my-basket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Basket Clear",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/my-basket-clear",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"my-basket-clear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Basket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": \"e2c28845-84aa-4320-ac7e-2aab9308d946\",\r\n    \"piece\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/basket-add",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"basket-add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Basket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"296c73ca-be1e-4e33-ba3e-975e614e55af\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/basket-remove",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"basket-remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/checkout",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/orders",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SERVER}}/order-detail?id=30f95878-d82b-40f4-bedd-302a04c80e44",
+					"host": [
+						"{{SERVER}}"
+					],
+					"path": [
+						"order-detail"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "30f95878-d82b-40f4-bedd-302a04c80e44"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "SERVER",
+			"value": "http://127.0.0.1:8033/webrebe",
+			"type": "default"
+		},
+		{
+			"key": "TOKEN",
+			"value": "214a00f9a5dcbbb99b2de9c42974b152bf11343c345e147acf33a46437c90c6e3f1038eb7ca9b961b757f45a7e3d1d87d22cd85656b0944d60652bb62bca1b11d7c1fb2a8e99d054cd01c89425cb3c1af24f3c0ed252e92df0a327dd9ce54327ba35214eb8c6f66437242d2ffa1c4b2ba62c9a45c0bdb00cad290579bb386cb48210bc08b5e6cd0df4fc3ff08261a99067067087853bcff415f446622d5b42689fe982c2240a1c75af223db8b1bceba9aff00e1c0b8d67851340871cb6d9837521a3fded6a40427b832844b686ff2160bb10d71b489841d8def22b19a0a259979ef2535a3b8ee2874fe3ca869aa2079ee1423879679d02f90ae949ba822f5703",
+			"type": "default"
+		}
+	]
+}

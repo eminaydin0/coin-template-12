@@ -1,0 +1,282 @@
+/* Card Variant Styles */
+
+/* Cut Corner Card - Gaming için ideal */
+.card-cut-corner {
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(255, 107, 53, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-cut-corner:hover {
+  border-color: rgba(249, 115, 22, 0.6);
+  box-shadow: 
+    0 0 30px rgba(249, 115, 22, 0.5),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Gradient Border Card - Premium görünüm */
+.card-gradient-border {
+  border: 2px solid transparent;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) padding-box,
+    linear-gradient(135deg, rgba(249, 115, 22, 0.4), rgba(251, 146, 60, 0.4)) border-box;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-gradient-border:hover {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)) padding-box,
+    linear-gradient(135deg, rgba(249, 115, 22, 0.8), rgba(251, 146, 60, 0.8)) border-box;
+  box-shadow: 
+    0 0 40px rgba(249, 115, 22, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Glassmorphism Card - Modern ve temiz */
+.card-glassmorphism {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-glassmorphism:hover {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Rounded with Accent Corner - Klasik ama özel */
+.card-accent-corner {
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.card-accent-corner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), transparent);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  transition: all 0.3s;
+}
+
+.card-accent-corner:hover::before {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.6), transparent);
+  width: 60px;
+  height: 60px;
+}
+
+.card-accent-corner:hover {
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 
+    0 8px 24px rgba(249, 115, 22, 0.25),
+    0 0 40px rgba(249, 115, 22, 0.1);
+}
+
+/* GAMING CUT CORNER DESIGN - Aggressive Gaming Style */
+.card-gaming-premium {
+  position: relative;
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid transparent;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    linear-gradient(135deg, rgba(249, 115, 22, 0.5), rgba(251, 146, 60, 0.3), rgba(249, 115, 22, 0.5));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+/* Animated Border Glow */
+.card-gaming-premium::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+  background: linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.8),
+    rgba(251, 146, 60, 0.6),
+    rgba(249, 115, 22, 0.8),
+    rgba(251, 146, 60, 0.6)
+  );
+  background-size: 400% 400%;
+  animation: borderGlow 4s ease infinite;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Corner Accent Lines */
+.card-gaming-premium::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 3px solid rgba(249, 115, 22, 0.6);
+  border-left: 3px solid rgba(249, 115, 22, 0.6);
+  clip-path: polygon(0 0, 20px 0, 0 20px);
+  opacity: 0.8;
+  transition: all 0.4s;
+  z-index: 1;
+}
+
+/* Hover States */
+.card-gaming-premium:hover {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    linear-gradient(135deg, rgba(249, 115, 22, 0.9), rgba(251, 146, 60, 0.7), rgba(249, 115, 22, 0.9));
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 
+    0 0 50px rgba(249, 115, 22, 0.6),
+    0 15px 40px rgba(249, 115, 22, 0.4),
+    0 5px 20px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(249, 115, 22, 0.1);
+}
+
+.card-gaming-premium:hover::before {
+  opacity: 1;
+  filter: blur(12px);
+}
+
+.card-gaming-premium:hover::after {
+  border-color: rgba(249, 115, 22, 1);
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.8);
+}
+
+/* Corner Glow Dots - Gaming Style */
+.card-gaming-premium .corner-glow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+.card-gaming-premium .corner-glow.top-left {
+  top: 0;
+  left: 0;
+  border-top: 3px solid rgba(249, 115, 22, 0.6);
+  border-left: 3px solid rgba(249, 115, 22, 0.6);
+  clip-path: polygon(0 0, 20px 0, 0 20px);
+  transition: all 0.4s;
+}
+
+.card-gaming-premium .corner-glow.top-right {
+  top: 0;
+  right: 0;
+  border-top: 3px solid rgba(249, 115, 22, 0.6);
+  border-right: 3px solid rgba(249, 115, 22, 0.6);
+  clip-path: polygon(calc(100% - 20px) 0, 100% 0, 100% 20px);
+  transition: all 0.4s;
+}
+
+.card-gaming-premium .corner-glow.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 3px solid rgba(249, 115, 22, 0.6);
+  border-left: 3px solid rgba(249, 115, 22, 0.6);
+  clip-path: polygon(0 calc(100% - 20px), 0 100%, 20px 100%);
+  transition: all 0.4s;
+}
+
+.card-gaming-premium .corner-glow.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 3px solid rgba(249, 115, 22, 0.6);
+  border-right: 3px solid rgba(249, 115, 22, 0.6);
+  clip-path: polygon(calc(100% - 20px) 100%, 100% 100%, 100% calc(100% - 20px));
+  transition: all 0.4s;
+}
+
+.card-gaming-premium:hover .corner-glow {
+  border-color: rgba(249, 115, 22, 1);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.8);
+  filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.6));
+}
+
+/* Corner Glow Effect - Cut corner için ekstra */
+.card-corner-glow {
+  position: relative;
+}
+
+.card-corner-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.4), transparent);
+  clip-path: polygon(0 0, 30px 0, 0 30px);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-corner-glow:hover::after {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-cut-corner {
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  
+  .card-gaming-premium {
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  }
+  
+  .card-gaming-premium::before {
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  }
+  
+  .card-gaming-premium .corner-glow {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .card-gaming-premium .corner-glow.top-left {
+    clip-path: polygon(0 0, 15px 0, 0 15px);
+  }
+  
+  .card-gaming-premium .corner-glow.top-right {
+    clip-path: polygon(calc(100% - 15px) 0, 100% 0, 100% 15px);
+  }
+  
+  .card-gaming-premium .corner-glow.bottom-left {
+    clip-path: polygon(0 calc(100% - 15px), 0 100%, 15px 100%);
+  }
+  
+  .card-gaming-premium .corner-glow.bottom-right {
+    clip-path: polygon(calc(100% - 15px) 100%, 100% 100%, 100% calc(100% - 15px));
+  }
+}
+
