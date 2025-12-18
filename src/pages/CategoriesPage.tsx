@@ -59,111 +59,72 @@ const CategoriesPage = () => {
   }
 
   return (
-    <div className="min-h-screen pt-20 relative overflow-hidden gaming-scrollbar">
+    <div className="min-h-screen lg:pt-0 pt-16 relative overflow-hidden bg-black">
       <SEOHead />
       
       {/* Common Background */}
       <CommonBackground />
 
-      {/* Background Glow */}
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
-      
       <div className="w-full relative z-10">
-        {/* Header */}
-        <div className="w-full mb-10 px-4 sm:px-6 lg:px-8">
-          <div className="w-full">
-            <div 
-              className="rounded-2xl p-8 relative overflow-hidden"
-              style={{
-                background: 'linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%)',
-                border: '1px solid rgba(75, 85, 99, 0.3)',
-                backdropFilter: 'blur(10px)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
-              }}
-            >
+        {/* Header Section - Homepage Style */}
+        <div className="w-full mb-12">
+          <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+            <div className="p-4 sm:p-6 lg:p-8">
               {/* Breadcrumb */}
-              <div className="flex items-center flex-wrap gap-2 text-sm mb-6 relative z-10">
+              <div className="flex items-center flex-wrap gap-2 text-sm mb-6">
                 <Link 
                   to="/" 
-                  className="flex items-center gap-1.5 text-gray-400 hover:text-orange-400 transition-colors group"
+                  className="flex items-center gap-1.5 text-gray-400 hover:text-[#107C10] transition-colors group"
                 >
                   <Home className="h-4 w-4 group-hover:scale-110 transition-transform" />
                   <span>Ana Sayfa</span>
                 </Link>
                 <ChevronRight className="h-4 w-4 text-gray-600" />
-                <span className="text-orange-300 font-semibold">Kategoriler</span>
+                <span className="text-[#107C10] font-semibold">Kategoriler</span>
               </div>
 
-              {/* Title Section */}
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 relative z-10">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <div 
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center"
-                      style={{
-                        background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(234, 88, 12, 0.15) 100%)',
-                        border: '1px solid rgba(249, 115, 22, 0.3)',
-                        boxShadow: '0 8px 32px rgba(249, 115, 22, 0.15)',
-                      }}
-                    >
-                      <Grid3x3 className="h-6 w-6 text-orange-400" />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h1 className="text-2xl font-black text-white tracking-tight mb-1">
-                      Oyun Kategorileri
-                    </h1>
-                    <p className="text-gray-400 text-sm font-medium">
-                      Tüm oyun kategorilerini keşfedin ve istediğiniz oyunu bulun
-                    </p>
-                  </div>
+              {/* Title Section - Homepage Header Style */}
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] border border-[#333333]">
+                  <Grid3x3 className="h-5 w-5 text-[#107C10]" />
                 </div>
-
-                {/* Stats Badge */}
-                <div className="flex items-center gap-3">
-                  <div
-                    className="px-4 py-2 rounded-xl flex items-center gap-2"
-                    style={{
-                      background: 'rgba(249, 115, 22, 0.15)',
-                      border: '1px solid rgba(249, 115, 22, 0.3)',
-                    }}
-                  >
-                    <Sparkles className="h-4 w-4 text-orange-400" />
-                    <span className="text-orange-300 text-sm font-bold">
+                <div>
+                  <h1 className="text-xl font-semibold text-white">
+                    Oyun Kategorileri
+                  </h1>
+                  <p className="text-gray-400 text-sm">
+                    Tüm oyun kategorilerini keşfedin ve istediğiniz oyunu bulun
+                  </p>
+                </div>
+                {categories.length > 0 && (
+                  <div className="ml-auto flex items-center gap-2 px-3 py-1.5 bg-[#107C10]/20 border border-[#107C10]/30 rounded-lg">
+                    <Sparkles className="h-4 w-4 text-[#107C10]" />
+                    <span className="text-[#107C10] text-sm font-semibold">
                       {categories.length} Kategori
                     </span>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
         </div>
 
         {/* Categories Grid */}
-        <section className="relative py-4">
-          <div className="px-4 sm:px-6 lg:px-8">
-            <div className="w-full">
+        <section className="relative">
+          <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+            <div className="p-4 sm:p-6 lg:p-8">
               {categories.length === 0 ? (
-                <div 
-                  className="text-center py-24 rounded-2xl"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%)',
-                    border: '1px solid rgba(75, 85, 99, 0.3)',
-                    backdropFilter: 'blur(10px)',
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
-                  }}
-                >
-                  <div className="w-24 h-24 rounded-3xl bg-gradient-to-br from-orange-500/20 to-orange-600/10 flex items-center justify-center mx-auto mb-6">
-                    <Gamepad2 className="h-12 w-12 text-orange-400/60" />
+                <div className="text-center py-24">
+                  <div className="w-16 h-16 bg-[#1A1A1A] border border-[#107C10]/30 flex items-center justify-center mx-auto mb-4">
+                    <Gamepad2 className="w-8 h-8 text-[#107C10]/60" />
                   </div>
-                  <h3 className="text-3xl font-black text-white mb-3">
+                  <h3 className="text-xl font-semibold text-white mb-2">
                     Kategori Bulunamadı
                   </h3>
-                  <p className="text-gray-400 text-lg">Yakında yeni kategoriler eklenecektir.</p>
+                  <p className="text-gray-400 text-sm">Yakında yeni kategoriler eklenecektir.</p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                   {categories.map((category, index) => (
                     <CategoryCard key={category.id} category={category} index={index} />
                   ))}
@@ -185,126 +146,138 @@ const CategoryCard = ({ category, index }: { category: Category; index: number }
   const [imageError, setImageError] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+    <Link
+      to={`/oyunlar/${category.slug}`}
+      className="block group h-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <Link 
-        to={`/oyunlar/${category.slug}`}
-        className="block group h-full"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+      <div
+        className="relative overflow-hidden h-full flex flex-col bg-[#1A1A1A] border border-[#333333] transition-all duration-200 hover:border-[#107C10]"
+        style={{
+          clipPath: 'polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px)',
+        }}
       >
-        <motion.div
-          className="relative overflow-hidden h-full flex flex-col rounded-2xl"
+        {/* Corner Accents */}
+        <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full border-t-2 border-l-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(0 0, 16px 0, 0 16px)' }} />
+        </div>
+        <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
+          <div className="absolute top-0 right-0 w-full h-full border-t-2 border-r-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(calc(100% - 16px) 0, 100% 0, 100% 16px)' }} />
+        </div>
+        <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
+          <div className="absolute bottom-0 left-0 w-full h-full border-b-2 border-l-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(0 calc(100% - 16px), 0 100%, 16px 100%)' }} />
+        </div>
+        <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
+          <div className="absolute bottom-0 right-0 w-full h-full border-b-2 border-r-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(calc(100% - 16px) 100%, 100% 100%, 100% calc(100% - 16px))' }} />
+        </div>
+        {/* Two Diagonal Green Stripes at Bottom Right */}
+        <div 
+          className="absolute bottom-0 right-0 h-1.5 bg-[#107C10] z-10"
           style={{
-            background: 'linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%)',
-            border: '1px solid rgba(75, 85, 99, 0.3)',
-            backdropFilter: 'blur(10px)',
+            width: '60%',
+            transform: 'skewY(-3deg)',
+            transformOrigin: 'bottom right',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 85%)',
           }}
-          whileHover={{ 
-            y: -8,
-            boxShadow: '0 20px 60px rgba(249, 115, 22, 0.3)',
-            borderColor: 'rgba(249, 115, 22, 0.5)',
+        />
+        <div 
+          className="absolute bottom-0 right-0 h-1.5 bg-[#14B814] z-10"
+          style={{
+            width: '40%',
+            transform: 'skewY(-5deg) translateY(-2px)',
+            transformOrigin: 'bottom right',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)',
           }}
-          transition={{ duration: 0.3 }}
-        >
-          {/* Category Image */}
-          <div className="relative h-48 overflow-hidden rounded-t-2xl">
-            {category.url && !imageError ? (
-              <motion.img
-                src={category.url}
-                alt={category.name}
-                className="w-full h-full object-cover"
-                initial={{ scale: 1 }}
-                animate={{ scale: isHovered ? 1.08 : 1 }}
-                transition={{ duration: 0.4 }}
-                onError={() => setImageError(true)}
-                loading="lazy"
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-orange-500/30 via-orange-600/20 to-orange-700/10 flex items-center justify-center">
-                <Gamepad2 className="h-16 w-16 text-orange-300/60" />
-              </div>
-            )}
-
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
-            
-            {/* Product Count Badge */}
-            {category.productCount && category.productCount > 0 && (
-              <motion.div
-                className="absolute top-3 right-3 rounded-lg px-3 py-1.5 z-10 flex items-center gap-1.5"
-                style={{
-                  background: 'rgba(249, 115, 22, 0.9)',
-                  border: '1px solid rgba(251, 146, 60, 0.5)',
-                }}
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
-              >
-                <Sparkles className="h-3.5 w-3.5 text-white" />
-                <span className="text-white text-xs font-bold">{category.productCount}+ ürün</span>
-              </motion.div>
-            )}
-
-            {/* Hover Overlay */}
-            <motion.div
-              className="absolute inset-0 bg-orange-500/0 pointer-events-none"
-              animate={{
-                background: isHovered ? 'rgba(249, 115, 22, 0.1)' : 'rgba(249, 115, 22, 0)',
-              }}
-              transition={{ duration: 0.3 }}
+        />
+        
+        {/* Image Section */}
+        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-[#107C10]/10 to-black">
+          {category.url && !imageError ? (
+            <img
+              src={category.url}
+              alt={category.name}
+              className={`w-full h-full object-cover transition-transform duration-300 ${
+                isHovered ? 'scale-110' : 'scale-100'
+              }`}
+              onError={() => setImageError(true)}
             />
-          </div>
+          ) : (
+            <div className="w-full h-full bg-[#1A1A1A] flex items-center justify-center">
+              <Grid3x3 className="h-16 w-16 text-[#107C10]/60" />
+            </div>
+          )}
 
-          {/* Content */}
-          <div className="p-4 flex-1 flex flex-col">
-            <h3 className="text-white font-bold text-base mb-auto line-clamp-2 leading-snug transition-colors duration-300"
-                style={{ color: isHovered ? 'rgb(251, 146, 60)' : 'rgb(255, 255, 255)' }}>
-              {category.name}
-            </h3>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
-            {/* Description */}
-            {category.description && (
-              <p className="text-gray-400 text-sm mt-2 line-clamp-2 leading-relaxed">
-                {category.description}
-              </p>
-            )}
+          {/* Product Count Badge */}
+          {category.productCount && category.productCount > 0 && (
+            <div className="absolute top-3 right-3 px-2.5 py-1.5 flex items-center gap-1.5 bg-[#107C10]/90 backdrop-blur-sm border border-[#107C10] rounded-lg z-20">
+              <Sparkles className="h-3.5 w-3.5 text-white" />
+              <span className="text-white text-xs font-semibold">{category.productCount}+</span>
+            </div>
+          )}
+        </div>
 
-            {/* Action Section */}
-            <div className="mt-4 pt-4 border-t" style={{ borderColor: 'rgba(75, 85, 99, 0.3)' }}>
-              <div className="flex items-center justify-between">
-                <span className="text-gray-400 text-xs font-medium">Kategoriyi Gör</span>
-                <motion.div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center"
-                  style={{
-                    background: 'rgba(249, 115, 22, 0.15)',
-                    border: '1px solid rgba(249, 115, 22, 0.3)',
-                  }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    background: 'rgba(249, 115, 22, 0.25)',
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <ArrowRight className="h-5 w-5 text-orange-400" />
-                </motion.div>
+        {/* Content Section */}
+        <div className="p-5 flex-1 flex flex-col bg-gradient-to-b from-[#1A1A1A] to-black">
+          {/* Category Name */}
+          <h3 className="text-white font-semibold text-base mb-auto line-clamp-2 leading-snug transition-colors duration-300"
+              style={{ color: isHovered ? '#107C10' : '#ffffff' }}>
+            {category.name}
+          </h3>
+
+          {/* Description */}
+          {category.description && (
+            <p className="text-gray-400 text-sm mt-2 line-clamp-2 leading-relaxed">
+              {category.description}
+            </p>
+          )}
+
+          {/* Action Section */}
+          <div className="mt-4 pt-4 border-t border-[#107C10]/20">
+            <div className="flex items-center justify-between">
+              <span className="text-gray-400 text-xs font-medium">Kategoriyi Gör</span>
+              <div className="w-10 h-10 flex items-center justify-center bg-[#107C10]/20 border border-[#107C10] hover:bg-[#107C10] transition-all duration-300 rounded-lg group-hover:scale-110">
+                <ArrowRight className="h-5 w-5 text-[#107C10] group-hover:text-white transition-colors" />
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Shine Effect on Hover */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent pointer-events-none"
-            initial={{ x: '-100%' }}
-            animate={{ x: isHovered ? '100%' : '-100%' }}
-            transition={{ duration: 0.6 }}
-          />
-        </motion.div>
-      </Link>
-    </motion.div>
+        {/* Hover Glow Effect */}
+        {isHovered && (
+          <>
+            <div className="absolute inset-0 border-2 border-[#107C10] pointer-events-none opacity-50" 
+              style={{
+                clipPath: 'polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px)',
+              }} />
+            {/* Corner Glow on Hover */}
+            <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+              <div className="absolute top-0 left-0 w-full h-full border-t-2 border-l-2 border-[#107C10] shadow-[0_0_12px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(0 0, 16px 0, 0 16px)' }} />
+            </div>
+            <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
+              <div className="absolute top-0 right-0 w-full h-full border-t-2 border-r-2 border-[#107C10] shadow-[0_0_12px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(calc(100% - 16px) 0, 100% 0, 100% 16px)' }} />
+            </div>
+            <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
+              <div className="absolute bottom-0 left-0 w-full h-full border-b-2 border-l-2 border-[#107C10] shadow-[0_0_12px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(0 calc(100% - 16px), 0 100%, 16px 100%)' }} />
+            </div>
+            <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
+              <div className="absolute bottom-0 right-0 w-full h-full border-b-2 border-r-2 border-[#107C10] shadow-[0_0_12px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(calc(100% - 16px) 100%, 100% 100%, 100% calc(100% - 16px))' }} />
+            </div>
+          </>
+        )}
+      </div>
+    </Link>
   );
 };
 

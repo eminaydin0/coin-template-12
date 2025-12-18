@@ -117,7 +117,7 @@
   --gaming-accent: #14B814;
 }
 
-/* Ensure header stays fixed */
+/* Header styles - Mobile only fixed */
 header {
   position: fixed !important;
   top: 0 !important;
@@ -125,6 +125,33 @@ header {
   right: 0 !important;
   z-index: 9999 !important;
   width: 100% !important;
+}
+
+/* Sidebar styles */
+aside {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Custom scrollbar for sidebar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #107C10;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #14B814;
 }
 
 body {
@@ -149,12 +176,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333333 !important;
+  background: #107C10 !important;
   border-radius: 4px !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555555 !important;
+  background: #14B814 !important;
 }
 
 ::-webkit-scrollbar-corner {
@@ -164,7 +191,7 @@ body {
 /* Additional scrollbar styles for better coverage */
 * {
   scrollbar-width: thin !important;
-  scrollbar-color: #333333 #000000 !important;
+  scrollbar-color: #107C10 #000000 !important;
 }
 
 *::-webkit-scrollbar {
@@ -176,12 +203,12 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #333333 !important;
+  background: #107C10 !important;
   border-radius: 4px !important;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #555555 !important;
+  background: #14B814 !important;
 }
 
 *::-webkit-scrollbar-corner {
@@ -191,7 +218,7 @@ body {
 /* Xbox Scrollbar for specific elements */
 .gaming-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #333333 #000000;
+  scrollbar-color: #107C10 #000000;
 }
 
 .gaming-scrollbar::-webkit-scrollbar {
@@ -203,12 +230,12 @@ body {
 }
 
 .gaming-scrollbar::-webkit-scrollbar-thumb {
-  background: #333333;
+  background: #107C10;
   border-radius: 4px;
 }
 
 .gaming-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #555555;
+  background: #14B814;
 }
 
 .gaming-scrollbar::-webkit-scrollbar-corner {

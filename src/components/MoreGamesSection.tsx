@@ -28,7 +28,7 @@ const MoreGamesSection = ({ homepageItems }: MoreGamesSectionProps) => {
   return (
     <div className="relative">
       <div className="flex flex-col relative z-10">
-        {/* Header */}
+        {/* Header - HeroSection Style */}
         <div className="mb-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] border border-[#333333]">
@@ -69,7 +69,47 @@ const MoreGameCard = ({ item }: { item: HomepageItem }) => {
     >
       <div
         className="relative overflow-hidden h-full flex flex-col bg-[#1A1A1A] border border-[#333333] transition-all duration-200 hover:border-[#107C10]"
+        style={{
+          clipPath: 'polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px)',
+        }}
       >
+        {/* Corner Accents */}
+        <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full border-t-2 border-l-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(0 0, 16px 0, 0 16px)' }} />
+        </div>
+        <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
+          <div className="absolute top-0 right-0 w-full h-full border-t-2 border-r-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(calc(100% - 16px) 0, 100% 0, 100% 16px)' }} />
+        </div>
+        <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
+          <div className="absolute bottom-0 left-0 w-full h-full border-b-2 border-l-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(0 calc(100% - 16px), 0 100%, 16px 100%)' }} />
+        </div>
+        <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
+          <div className="absolute bottom-0 right-0 w-full h-full border-b-2 border-r-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(calc(100% - 16px) 100%, 100% 100%, 100% calc(100% - 16px))' }} />
+        </div>
+        {/* Two Diagonal Green Stripes at Bottom Right */}
+        <div 
+          className="absolute bottom-0 right-0 h-1.5 bg-[#107C10] z-10"
+          style={{
+            width: '60%',
+            transform: 'skewY(-3deg)',
+            transformOrigin: 'bottom right',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 85%)',
+          }}
+        />
+        <div 
+          className="absolute bottom-0 right-0 h-1.5 bg-[#14B814] z-10"
+          style={{
+            width: '40%',
+            transform: 'skewY(-5deg) translateY(-2px)',
+            transformOrigin: 'bottom right',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)',
+          }}
+        />
+        
         {/* Image Section */}
         <div className="relative h-48 overflow-hidden">
           {item.url && !imageError ? (
@@ -139,6 +179,33 @@ const MoreGameCard = ({ item }: { item: HomepageItem }) => {
             </div>
           </div>
         </div>
+
+        {/* Hover Glow Effect */}
+        {isHovered && (
+          <>
+            <div className="absolute inset-0 border-2 border-[#107C10] pointer-events-none opacity-50" 
+              style={{
+                clipPath: 'polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px)',
+              }} />
+            {/* Corner Glow on Hover */}
+            <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+              <div className="absolute top-0 left-0 w-full h-full border-t-2 border-l-2 border-[#107C10] shadow-[0_0_12px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(0 0, 16px 0, 0 16px)' }} />
+            </div>
+            <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
+              <div className="absolute top-0 right-0 w-full h-full border-t-2 border-r-2 border-[#107C10] shadow-[0_0_12px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(calc(100% - 16px) 0, 100% 0, 100% 16px)' }} />
+            </div>
+            <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
+              <div className="absolute bottom-0 left-0 w-full h-full border-b-2 border-l-2 border-[#107C10] shadow-[0_0_12px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(0 calc(100% - 16px), 0 100%, 16px 100%)' }} />
+            </div>
+            <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
+              <div className="absolute bottom-0 right-0 w-full h-full border-b-2 border-r-2 border-[#107C10] shadow-[0_0_12px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(calc(100% - 16px) 100%, 100% 100%, 100% calc(100% - 16px))' }} />
+            </div>
+          </>
+        )}
       </div>
     </Link>
   );

@@ -11,6 +11,8 @@ import MoreGamesSection from '../components/MoreGamesSection';
 import BestSellingGamesSection from '../components/BestSellingGamesSection';
 import HowItWorksSection from '../components/HowItWorksSection';
 import CategoriesSection from '../components/CategoriesSection';
+import InteractiveShowcaseSection from '../components/InteractiveShowcaseSection';
+import SplitScreenSection from '../components/SplitScreenSection';
 
 interface HomepageItem {
   id: string;
@@ -72,7 +74,7 @@ const HomePage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen pt-16 relative overflow-hidden bg-black">
+      <div className="min-h-screen pt-16 lg:pt-0 relative overflow-hidden bg-black">
         <SEOHead />
 
         <div className="w-full relative z-10">
@@ -103,7 +105,7 @@ const HomePage = () => {
 
   return (
     <div
-      className="min-h-screen pt-16 relative overflow-hidden bg-black"
+      className="min-h-screen lg:pt-0 pt-16 relative overflow-hidden bg-black"
     >
       <SEOHead />
 
@@ -124,43 +126,83 @@ const HomePage = () => {
         </section>
 
         {/* CONTENT SECTIONS */}
-        <section className="w-full mb-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            {/* Row 1: Popular Products */}
-            <ScrollRevealSection>
-              <PopularProductsSection />
-            </ScrollRevealSection>
+        <section className="w-full space-y-12">
+          {/* Row 1: Categories Section - Kategorileri önce göster */}
+          {categories.length > 0 && (
+            <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+              <div className="p-4 sm:p-6 lg:p-8">
+                <ScrollRevealSection>
+                  <CategoriesSection categories={categories} />
+                </ScrollRevealSection>
+              </div>
+            </div>
+          )}
 
-            {/* Row 2: Categories Section */}
-            {categories.length > 0 && (
+          {/* Row 2: Popular Products - Popüler oyunlar */}
+          <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+            <div className="p-4 sm:p-6 lg:p-8">
               <ScrollRevealSection>
-                <CategoriesSection categories={categories} />
+                <PopularProductsSection />
               </ScrollRevealSection>
-            )}
+            </div>
+          </div>
 
-            {/* Row 3: Best Selling Games */}
-            <ScrollRevealSection>
-              <BestSellingGamesSection homepageItems={homepageItems} />
-            </ScrollRevealSection>
-
-            {/* Row 4: More Games */}
-            <ScrollRevealSection>
-              <MoreGamesSection homepageItems={homepageItems} />
-            </ScrollRevealSection>
-
-            {/* Row 5: How It Works */}
-            <ScrollRevealSection>
-              <HowItWorksSection />
-            </ScrollRevealSection>
-
-            {/* Row 6: Newsletter & CTA */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Row 3: Best Selling Games - En çok satanlar */}
+          <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+            <div className="p-4 sm:p-6 lg:p-8">
               <ScrollRevealSection>
-                <NewsletterSignup />
+                <BestSellingGamesSection homepageItems={homepageItems} />
               </ScrollRevealSection>
+            </div>
+          </div>
+
+          {/* Row 4: Interactive Showcase - Öne çıkan showcase */}
+          <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+            <div className="p-4 sm:p-6 lg:p-8">
               <ScrollRevealSection>
-                <CallToActionSection variant="compact" />
+                <InteractiveShowcaseSection />
               </ScrollRevealSection>
+            </div>
+          </div>
+
+          {/* Row 5: Split Screen - Büyük gösterim */}
+          <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+            <div className="p-4 sm:p-6 lg:p-8">
+              <ScrollRevealSection>
+                <SplitScreenSection />
+              </ScrollRevealSection>
+            </div>
+          </div>
+
+          {/* Row 6: More Games - Daha fazla oyun */}
+          <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+            <div className="p-4 sm:p-6 lg:p-8">
+              <ScrollRevealSection>
+                <MoreGamesSection homepageItems={homepageItems} />
+              </ScrollRevealSection>
+            </div>
+          </div>
+
+          {/* Row 7: How It Works - Nasıl çalışır */}
+          <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+            <div className="p-4 sm:p-6 lg:p-8">
+              <ScrollRevealSection>
+                <HowItWorksSection />
+              </ScrollRevealSection>
+            </div>
+          </div>
+
+          {/* Row 8: Newsletter & CTA - En altta */}
+          <div className="w-full bg-black" style={{ border: '1px solid #333333' }}>
+            <div className="p-4 sm:p-6 lg:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <ScrollRevealSection>
+                  <NewsletterSignup />
+                </ScrollRevealSection>
+                <ScrollRevealSection>
+                  <CallToActionSection variant="compact" />
+                </ScrollRevealSection>
+              </div>
             </div>
           </div>
         </section>

@@ -28,7 +28,7 @@ const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
 
   return (
     <section className="relative w-full">
-      {/* Header */}
+      {/* Header - HeroSection Style */}
       <div className="mb-6">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] border border-[#333333]">
@@ -68,9 +68,49 @@ const CategoryCard = ({ category, index }: { category: Category; index: number }
       className="block group"
     >
       <div
-        className="relative bg-[#1A1A1A] border border-[#333333] p-4 h-full flex flex-col transition-all duration-200 hover:border-[#107C10]"
+        className="relative bg-[#1A1A1A] border border-[#333333] p-4 h-full flex flex-col transition-all duration-200 hover:border-[#107C10] overflow-hidden"
+        style={{
+          clipPath: 'polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)',
+        }}
       >
-        <div className="flex flex-col items-center justify-center h-full">
+        {/* Corner Accents */}
+        <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full border-t-2 border-l-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(0 0, 12px 0, 0 12px)' }} />
+        </div>
+        <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+          <div className="absolute top-0 right-0 w-full h-full border-t-2 border-r-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(calc(100% - 12px) 0, 100% 0, 100% 12px)' }} />
+        </div>
+        <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+          <div className="absolute bottom-0 left-0 w-full h-full border-b-2 border-l-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(0 calc(100% - 12px), 0 100%, 12px 100%)' }} />
+        </div>
+        <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+          <div className="absolute bottom-0 right-0 w-full h-full border-b-2 border-r-2 border-[#107C10]/60" 
+            style={{ clipPath: 'polygon(calc(100% - 12px) 100%, 100% 100%, 100% calc(100% - 12px))' }} />
+        </div>
+        {/* Two Diagonal Green Stripes at Bottom Right */}
+        <div 
+          className="absolute bottom-0 right-0 h-1.5 bg-[#107C10] z-10"
+          style={{
+            width: '60%',
+            transform: 'skewY(-3deg)',
+            transformOrigin: 'bottom right',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 85%)',
+          }}
+        />
+        <div 
+          className="absolute bottom-0 right-0 h-1.5 bg-[#14B814] z-10"
+          style={{
+            width: '40%',
+            transform: 'skewY(-5deg) translateY(-2px)',
+            transformOrigin: 'bottom right',
+            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)',
+          }}
+        />
+        
+        <div className="flex flex-col items-center justify-center h-full relative z-0">
           {/* Image/Icon */}
           <div className="relative w-16 h-16 mb-3 flex items-center justify-center bg-[#000000] border border-[#333333]">
             {!error && category.url ? (
@@ -93,6 +133,33 @@ const CategoryCard = ({ category, index }: { category: Category; index: number }
             {category.name}
           </h3>
         </div>
+
+        {/* Hover Glow Effect */}
+        {isHovered && (
+          <>
+            <div className="absolute inset-0 border-2 border-[#107C10] pointer-events-none opacity-50" 
+              style={{
+                clipPath: 'polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)',
+              }} />
+            {/* Corner Glow on Hover */}
+            <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+              <div className="absolute top-0 left-0 w-full h-full border-t-2 border-l-2 border-[#107C10] shadow-[0_0_10px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(0 0, 12px 0, 0 12px)' }} />
+            </div>
+            <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+              <div className="absolute top-0 right-0 w-full h-full border-t-2 border-r-2 border-[#107C10] shadow-[0_0_10px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(calc(100% - 12px) 0, 100% 0, 100% 12px)' }} />
+            </div>
+            <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+              <div className="absolute bottom-0 left-0 w-full h-full border-b-2 border-l-2 border-[#107C10] shadow-[0_0_10px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(0 calc(100% - 12px), 0 100%, 12px 100%)' }} />
+            </div>
+            <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+              <div className="absolute bottom-0 right-0 w-full h-full border-b-2 border-r-2 border-[#107C10] shadow-[0_0_10px_rgba(16,124,16,0.8)]" 
+                style={{ clipPath: 'polygon(calc(100% - 12px) 100%, 100% 100%, 100% calc(100% - 12px))' }} />
+            </div>
+          </>
+        )}
       </div>
     </Link>
   );
